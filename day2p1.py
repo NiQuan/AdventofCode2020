@@ -1,6 +1,6 @@
 import re
 
-with open("input2.txt", "r") as f:
+with open("inputs/input2.txt", "r") as f:
     lines = f.read().splitlines()
 
 count = 0

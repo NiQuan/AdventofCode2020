@@ -1,4 +1,4 @@
-with open("input3.txt", "r") as f:
+with open("inputs/input3.txt", "r") as f:
     lines = f.read().splitlines()
 
 height = len(lines)
