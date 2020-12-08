@@ -3,7 +3,7 @@ with open("inputs/input1.txt", "r") as f:
 
 # Part 1
 for i in range(0, len(lines)):
-    for j in range(i, len(lines)):
+    for j in range(i + 1, len(lines)):
         if (lines[i] + lines[j]) == 2020:
             print(i * j)
 
