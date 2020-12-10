@@ -16,7 +16,7 @@ def form_bag_names(words):
     return_list = []
     for i in range(len(words)):
         if i % 2 == 0:
-            return_list += [words[i] + " "+ words[i + 1]]
+            return_list += [words[i] + " " + words[i + 1]]
     return return_list
 
 for r in rules:
