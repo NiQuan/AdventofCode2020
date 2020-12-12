@@ -20,7 +20,5 @@ for i in one_streak_lens:
         acc = acc * (2 ** (i - 1))
     elif i == 4:
         acc = acc * 7 # 7 is 2**8 minus 1
-    elif i > 4:
-        raise (i)
 
 print(int(acc))
