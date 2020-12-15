@@ -1,6 +1,6 @@
+import copy
 with open("inputs/input11.txt", "r") as f:
     layout = [list(x) for x in f.read().splitlines()]
-import copy
 
 def neighbours(x,y,layout):
     n = []

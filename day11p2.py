@@ -1,6 +1,7 @@
+import copy
+
 with open("inputs/input11.txt", "r") as f:
     layout = [list(x) for x in f.read().splitlines()]
-import copy
 
 def neighbours(x,y,layout):
     max_x = len(layout)
@@ -39,7 +40,7 @@ def debug_print(layout): #Function for debugging
             print(s, end="")
         print("")
     print("")
-    
+
 converged = False
 old_layout = copy.deepcopy(layout)
 new_layout = copy.deepcopy(layout)
