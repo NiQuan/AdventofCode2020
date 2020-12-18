@@ -40,7 +40,6 @@ state = (0, 0, 1, 10)
 
 for instruction in instructions:
     state = next_state(instruction, state)
-    print(state)
 
 print(abs(state[0]) + abs(state[1]))
         
