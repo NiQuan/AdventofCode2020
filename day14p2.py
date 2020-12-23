@@ -51,6 +51,4 @@ for i in instructions:
     for a in write_adds:
         memory[a] = val
 
-print(instructions)
-print(memory)
 print(sum([x[1] for x in memory.items()]))
