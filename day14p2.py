@@ -13,6 +13,7 @@ with open("inputs/input14.txt", "r") as f:
 
 memory = {}
 
+
 def pre_process(raw_address, mask):
     address = ""
     for i in range(len(mask)):
@@ -23,6 +24,7 @@ def pre_process(raw_address, mask):
         else:
             address += "X"
     return address
+
 
 def find_adds(raw_address, mask):
     if mask:
@@ -37,15 +39,16 @@ def find_adds(raw_address, mask):
                 last_part = address[(i+1):]
                 ad1 = find_adds(first_part + "0" + last_part, None)
                 ad2 = find_adds(first_part + "1" + last_part, None)
-                return  ad1 + ad2
+                return ad1 + ad2
     else:
         return [address]
 
+
 for i in instructions:
     mask = i[0]
-    bin_ad = format(i[1],"036b")
+    bin_ad = format(i[1], "036b")
     val = i[2]
-    
+
     write_adds = find_adds(bin_ad, mask)
 
     for a in write_adds:
