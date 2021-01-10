@@ -76,7 +76,7 @@ class Tile:
             self.img = flip_img(self.img)
 
     def cropped(self):
-        return [r[1:-2] for r in self.img[1:-1]]
+        return [r[1:-1] for r in self.img[1:-1]
 
 
 with open("inputs/input20.txt", "r") as f:
