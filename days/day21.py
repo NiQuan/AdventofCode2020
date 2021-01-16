@@ -13,6 +13,7 @@ for l in lines:
 
 allergens = set()
 ingredients = set()
+pairs = []
 
 for i in items:
     allergens = allergens | i[1]
@@ -34,16 +35,14 @@ def find_possible(items, allergen, ingredients):
 
 def remove_pair(items, allergen, ingred):
     new_items = []
-    print(f"removing {allergen} {ingred}")
     for i in items:
         new_item = [
             set([j for j in i[0] if not j == ingred]),
             set([j for j in i[1] if not j == allergen]),
         ]
         if new_item[1] and new_item[0]:
-            new_items += new_item
-    print(new_items[:5])
-    print(items[:5])
+            new_items += [new_item]
+
     return new_items
 
 
@@ -54,16 +53,12 @@ while remaining_not_final:
         if len(possible_ingred) == 1:
             open_allergens_new = open_allergens - set([a])
             open_items = remove_pair(open_items, a, list(possible_ingred)[0])
+            pairs.append((a, list(possible_ingred)[0]))
             remaining_not_final = True
             safe_ingreds = safe_ingreds - possible_ingred
     open_allergens = open_allergens_new
     if not open_allergens:
         remaining_not_final = False
-
-
-for a in open_allergens:
-    possible_ingred = find_possible(open_items, a, ingredients)
-    safe_ingreds = safe_ingreds - possible_ingred
 
 count = 0
 for i in safe_ingreds:
@@ -71,5 +66,11 @@ for i in safe_ingreds:
         if i in j[0]:
             count += 1
 
-print(count)
-print(open_allergens)
+pairs.sort()
+
+pt_2_str = pairs[0][1]
+for p in pairs[1:]:
+    pt_2_str += "," + p[1]
+
+print(f"Part 1: {count}")
+print(f"Part 2: {pt_2_str}")
